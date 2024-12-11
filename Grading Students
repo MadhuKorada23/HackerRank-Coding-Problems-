@@ -1,0 +1,33 @@
+Grading Students 
+
+https://www.hackerrank.com/challenges/grading/problem?isFullScreen=true
+
+Solution:
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    int n;
+    cin>>n;
+    vector<int>grades(n);
+    for(int i=0;i<n;i++){
+        cin>>grades[i];
+    }
+    for(int i=0;i<n;i++){
+        int grade=grades[i];
+        if(grade<38){
+            cout<<grade<<endl;
+        }
+        else{
+            int temp=(grade/5 + 1)*5;
+            if(temp-grade<3){
+                cout<<temp<<endl;
+            }
+            else{
+                cout<<grade<<endl;
+            }
+        }
+    }
+}

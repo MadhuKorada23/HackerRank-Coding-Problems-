@@ -1,0 +1,26 @@
+Mini-Max Sum:
+
+https://www.hackerrank.com/challenges/mini-max-sum/problem?isFullScreen=true
+
+Solution:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int a[5];
+    for(int i=0;i<5;i++){
+        cin>>a[i];
+    }
+    long int maxi=INT_MIN,mini=INT_MAX,sum=0;
+    for(int i=0;i<5;i++){
+        sum+=a[i];
+        if(a[i]>maxi){
+            maxi=a[i];
+        }
+        if(a[i]<mini){
+            mini=a[i];
+        }
+    }
+    cout<<sum-maxi<<" "<<sum-mini;
+}

@@ -1,0 +1,30 @@
+Compare the triplet:
+
+https://www.hackerrank.com/challenges/compare-the-triplets/problem?isFullScreen=true
+
+
+Solution:
+
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int n=3;
+    vector<int>arr1(n);
+    vector<int>arr2(n);
+    for(int i=0;i<n;i++){
+        cin>>arr1[i];
+    }
+    for(int i=0;i<n;i++){
+        cin>>arr2[i];
+    }
+    int alis_score=0;
+    int bob_score=0;
+    for(int i=0;i<n;i++){
+        if (arr1[i]>arr2[i]) {
+            alis_score++;
+        } else if (arr1[i]<arr2[i]) {
+            bob_score++;
+        }
+    }
+    cout<<alis_score<<" "<<bob_score<<endl;
+}
