@@ -1,0 +1,38 @@
+Number line jumps:
+
+https://www.hackerrank.com/challenges/kangaroo/problem?isFullScreen=true
+
+solution:
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int x,y,x1,y1;
+    cin>>x>>x1>>y>>y1;
+    if(x>y && x1>=y1){
+        cout<<"NO";
+    }
+    else if(y>x && y1>=x1){
+        cout<<"NO";
+    }
+    else if(x>y){
+        if((x-y)%(y1-x1)==0)
+        {
+            cout<<"YES";
+        }
+        else{
+            cout<<"NO";
+        }
+    }
+    else if(y>x){
+        if((y-x)%(x1-y1)==0){
+            cout<<"YES";
+        }
+        else{
+            cout<<"NO";
+        }
+    }
+
+      
+}
