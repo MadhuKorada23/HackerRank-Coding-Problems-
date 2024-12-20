@@ -1,0 +1,32 @@
+#1539 leet code
+
+#kth missing positive number
+
+https://leetcode.com/problems/kth-missing-positive-number/description/
+
+soln:-
+
+
+
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        int size = arr.size();
+        int n = arr[size-1];//last element to be traversed
+
+        int i=1;
+        int p=0;
+
+        while(i<=n && p<size){
+            if(i == arr[p]){
+                p++;
+            }else{
+                k--;
+            }
+            if(k==0) return i;
+            i++;
+        }
+
+        return (arr[size-1]+k);
+    }
+};
