@@ -1,0 +1,31 @@
+link:-https://leetcode.com/problems/k-radius-subarray-averages/description/
+
+soln:
+class Solution {
+public:
+    vector<int> getAverages(vector<int>& nums, int k) {
+        int n=nums.size();
+        if(k==0){
+         return nums;   
+        }
+        vector<int> v(n,-1);
+        if(2*k+1>n){
+            return v;
+        }
+        long long windowsum=0;
+        for(int i=0;i<(2*k+1);i++)
+        {
+            windowsum+=nums[i];
+        }
+        v[k]=windowsum/(2*k+1);
+        for(int i=2*k+1;i<n;i++){
+        int decrement=nums[i-(2*k+1)];
+        int increment=nums[i];
+        windowsum=windowsum-decrement+increment;
+        v[i-k]=windowsum/(2*k+1);
+        
+        }
+        return v;
+
+    }
+};
