@@ -1,0 +1,30 @@
+link:-
+https://www.geeksforgeeks.org/problems/longest-k-unique-characters-substring0853/1
+
+soln:-
+
+ if (k == 0 || s.size() < k) return -1;
+
+    unordered_map<char, int> charFreq;
+    int start = 0, maxLength = -1;
+
+    for (int end = 0; end < s.size(); ++end) {
+        // Add current character to the frequency map
+        charFreq[s[end]]++;
+
+        // Shrink the window until we have exactly k unique characters
+        while (charFreq.size() > k) {
+            charFreq[s[start]]--;
+            if (charFreq[s[start]] == 0) {
+                charFreq.erase(s[start]);
+            }
+            start++;
+        }
+
+        // If we have exactly k unique characters, update the max length
+        if (charFreq.size() == k) {
+            maxLength = max(maxLength, end - start + 1);
+        }
+    }
+
+    return maxLength;
